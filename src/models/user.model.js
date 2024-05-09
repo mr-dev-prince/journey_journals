@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import bcryptjs from "bcryptjs";
-import jwt from "jsonwebtoken";
+import jwt, { verify } from "jsonwebtoken";
 
 const arrayMaxLength = function (val) {
   return val.length <= 10;
@@ -28,8 +28,8 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, "Password is required"],
     },
-    avatar: { type: String },
-    dateOfBirth: { type: Date },
+    avatar: { type: String, default: null },
+    dateOfBirth: { type: Date, default: null },
     location: { type: String },
     interests: {
       type: [{ type: String, maxlength: 15 }],
@@ -57,8 +57,10 @@ const userSchema = mongoose.Schema(
     visitedPlacesIds: [
       { type: mongoose.Schema.ObjectId, ref: "VisitedPlaces" },
     ],
-    forgotPasswordToken: { type: String },
-    forgotPasswordTokenExpiry: { type: Date },
+    verifyToken: { type: String },
+    verifyTokenExpiry: { type: Date },
+    forgetPasswordToken: { type: String },
+    forgetPasswordTokenExpiry: { type: Date },
     refreshToken: { type: String },
     refreshTokenExpiry: { type: Date },
   },
