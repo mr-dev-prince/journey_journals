@@ -2,6 +2,7 @@ import { parse } from "cookie";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { User } from "@/models/user.model";
+import { jwtVerify } from "@/utils/jwtVerification";
 
 export const GET = async (req) => {
   try {
@@ -9,18 +10,9 @@ export const GET = async (req) => {
 
     const token = getCookie.accessToken;
 
-    if (!token)
-      return NextResponse.json({
-        success: false,
-        status: 400,
-        message: "Unauthorized Request",
-      });
+    const userId = await jwtVerify(token);
 
-    const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-
-    const user = await User.findById(decodedToken._id).select(
-      "-password -refreshToken"
-    );
+    const user = await User.findById(userId).select("-password -refreshToken");
 
     if (!user)
       return NextResponse.json({

@@ -1,8 +1,8 @@
 import { parse } from "cookie";
 import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
 import { User } from "@/models/user.model.js";
+import { jwtVerify } from "@/utils/jwtVerification";
 
 export const POST = async (req) => {
   try {
@@ -12,27 +12,9 @@ export const POST = async (req) => {
 
     const token = getToken.accessToken;
 
-    if (!token) {
-      return NextResponse.json({
-        success: false,
-        status: 400,
-        message: "Unauthorized Request",
-        error: error?.message,
-      });
-    }
+    const userId = await jwtVerify(token);
 
-    const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-
-    if (!decodedToken) {
-      return NextResponse.json({
-        success: false,
-        status: 400,
-        message: "Invalid token...",
-        error: error?.message,
-      });
-    }
-
-    const user = await User.findById(decodedToken._id);
+    const user = await User.findById(userId);
 
     const isPasswordValid = await bcryptjs.compare(oldPassword, user.password);
 

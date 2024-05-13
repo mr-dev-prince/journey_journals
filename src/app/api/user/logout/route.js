@@ -3,6 +3,7 @@ import { User } from "@/models/user.model";
 import jwt from "jsonwebtoken";
 import { parse } from "cookie";
 import { NextResponse } from "next/server";
+import { jwtVerify } from "@/utils/jwtVerification";
 
 connectDb();
 
@@ -17,17 +18,10 @@ export const GET = async (req) => {
     const getCookie = parse(req.headers?.get("cookie"));
     const token = getCookie.accessToken;
 
-    if (!token)
-      return NextResponse.json({
-        success: false,
-        status: 400,
-        message: "Unauthorized request!",
-      });
-
-    const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    const userId = await jwtVerify(token);
 
     await User.findByIdAndUpdate(
-      decodedToken._id,
+      userId,
       {
         $unset: {
           refreshToken: 1,

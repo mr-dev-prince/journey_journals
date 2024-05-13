@@ -2,8 +2,8 @@ import { connectDb } from "@/db/connectDb";
 import { uploadOnCloudinary } from "@/utils/uploadOnCloudinary";
 import { parse } from "cookie";
 import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
 import { User } from "@/models/user.model";
+import { jwtVerify } from "@/utils/jwtVerification";
 
 connectDb();
 
@@ -12,25 +12,7 @@ export const POST = async (req) => {
     const getToken = parse(req.headers.get("cookie"));
     const token = getToken.accessToken;
 
-    if (!token) {
-      return NextResponse.json({
-        success: false,
-        status: 400,
-        message: "Unauthorized request",
-        data: null,
-      });
-    }
-
-    const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-
-    if (!decodedToken) {
-      return NextResponse.json({
-        success: false,
-        status: 400,
-        message: "Invalid Accesstoken",
-        data: null,
-      });
-    }
+    const userId = await jwtVerify(token);
 
     const formData = await req.formData();
 
@@ -51,7 +33,7 @@ export const POST = async (req) => {
     );
 
     const user = await User.findByIdAndUpdate(
-      decodedToken._id,
+      userId,
       {
         $set: {
           avatar: uploadResponse.url,

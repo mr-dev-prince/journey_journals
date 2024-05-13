@@ -50,13 +50,6 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    bucketListId: { type: mongoose.Schema.ObjectId, ref: "BucketList" },
-    travelHistoryIds: [
-      { type: mongoose.Schema.ObjectId, ref: "TravelHistory" },
-    ],
-    visitedPlacesIds: [
-      { type: mongoose.Schema.ObjectId, ref: "VisitedPlaces" },
-    ],
     verifyToken: { type: String },
     verifyTokenExpiry: { type: Date },
     forgetPasswordToken: { type: String },
@@ -66,23 +59,6 @@ const userSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
-
-const travelHistorySchema = mongoose.Schema(
-  {
-    userId: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
-    date: { type: Date, required: true },
-    destination: { type: String, required: true },
-    activities: [{ type: String }],
-    memories: [{ type: String }],
-    photos: [{ type: String }],
-  },
-  { timestamps: true }
-);
-
-const visitedPlacesSchema = mongoose.Schema({
-  userId: { type: mongoose.Schema.ObjectId, required: true },
-  placeName: [{ type: String, required: true }],
-});
 
 userSchema.pre("save", function (next) {
   if (!this.isModified("password")) return next();
@@ -118,13 +94,5 @@ userSchema.methods.generateRefreshToken = function () {
   );
 };
 
-const User = mongoose.models.users || new mongoose.model("users", userSchema);
-
-const TravelHistory =
-  mongoose.models.travelHistories ||
-  new mongoose.model("travelHistories", travelHistorySchema);
-const VisitedPlaces =
-  mongoose.models.visitedPlaces ||
-  new mongoose.model("visitedPlaces", visitedPlacesSchema);
-
-export { User, TravelHistory, VisitedPlaces };
+export const User =
+  mongoose.models.users || new mongoose.model("users", userSchema);

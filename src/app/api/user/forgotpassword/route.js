@@ -11,8 +11,19 @@ export const POST = async (req) => {
 
     const user = await User.findOne({ $or: [{ email }, { userName }] });
 
+    if (!user) {
+      return NextResponse.json({
+        success: false,
+        status: 400,
+        message: "Account not found....",
+        data: null,
+      });
+    }
+
+    const userEmail = user?.email || email;
+
     const mail = await sendEmail({
-      email,
+      userEmail,
       emailType: "reset",
       userId: user._id,
     });
@@ -27,7 +38,7 @@ export const POST = async (req) => {
     return NextResponse.json({
       success: false,
       status: 500,
-      message: "Error in forgot password api",
+      message: "Something went wrong....",
       error: error?.message,
     });
   }

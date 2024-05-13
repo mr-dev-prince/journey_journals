@@ -3,6 +3,7 @@ import { NextResponse, NextRequest } from "next/server";
 import jwt from "jsonwebtoken";
 import { User } from "@/models/user.model";
 import { connectDb } from "@/db/connectDb";
+import { jwtVerify } from "@/utils/jwtVerification";
 
 connectDb();
 
@@ -12,23 +13,15 @@ export const POST = async (req) => {
     const reqBody = await req.json();
 
     const { userName, fullName, dateOfBirth } = reqBody;
-    console.log(reqBody);
 
     const getToken = parse(req.headers?.get("cookie"));
 
     const token = getToken.accessToken;
 
-    if (!token)
-      return NextResponse.json({
-        success: false,
-        status: 400,
-        message: "Unauthorized request",
-      });
-
-    const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    const userId = await jwtVerify(token);
 
     const user = await User.findByIdAndUpdate(
-      decodedToken._id,
+      userId,
       {
         $set: {
           userName: userName,

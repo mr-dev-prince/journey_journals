@@ -66,7 +66,7 @@ export const POST = async (NextRequest) => {
 
     // const isPasswordValid = await user.isPasswordCorrect(password);
 
-    console.log("check", isPasswordValid);
+    // console.log("check", isPasswordValid);
 
     if (!isPasswordValid) {
       return NextResponse.json({
