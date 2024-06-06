@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
-
+import { Providers } from "./providers";
+import { FloatingNavBar } from "@/components/Common/FloatingHeader";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -10,11 +12,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          <FloatingNavBar />
+          <main>{children}</main>
+        </Providers>
+      </body>
     </html>
   );
 }
