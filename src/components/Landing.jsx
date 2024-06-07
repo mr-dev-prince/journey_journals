@@ -3,6 +3,7 @@ import Hero from "./Home/Hero";
 import { roboto } from "@/utils/font";
 import WelcomeSection from "./Home/WelcomeSection";
 import GuideSection from "./Home/GuideSection";
+import FeaturedSection from "./Home/FeaturedSection";
 
 const Landing = () => {
   return (
@@ -10,6 +11,7 @@ const Landing = () => {
       <Hero />
       <WelcomeSection />
       <GuideSection />
+      <FeaturedSection />
     </div>
   );
 };

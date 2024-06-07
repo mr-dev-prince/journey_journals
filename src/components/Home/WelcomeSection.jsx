@@ -10,7 +10,7 @@ import React from "react";
 
 const WelcomeSection = () => {
   return (
-    <div className="md:px-32 min-h-screen flex justify-center items-center">
+    <div className="md:px-32 max-h-screen h-fit py-16 flex justify-center items-center">
       <div className="flex justify-between items-center w-full h-full">
         <div className={`grid gap-12 w-[50%]`}>
           <div className="grid gap-5">
@@ -31,16 +31,16 @@ const WelcomeSection = () => {
           </button>
           <div className="flex gap-6">
             <Link href={"/"} className="hover:scale-95 duration-100 ">
-              <IconBrandInstagram size={32} />
+              <IconBrandInstagram size={28} />
             </Link>
             <Link href={"/"} className="hover:scale-95 duration-100 ">
-              <IconBrandFacebook size={32} />
+              <IconBrandFacebook size={28} />
             </Link>
             <Link href={"/"} className="hover:scale-95 duration-100 ">
-              <IconBrandX size={32} />
+              <IconBrandX size={28} />
             </Link>
             <Link href={"/"} className="hover:scale-95 duration-100 ">
-              <IconBrandDiscord size={32} />
+              <IconBrandDiscord size={28} />
             </Link>
           </div>
         </div>
