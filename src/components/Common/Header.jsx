@@ -2,28 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import logo from "@/assets/logo.png";
 import { roboto } from "@/utils/font";
 import { ToggleTheme } from "../ui/toggleTheme";
 import { NavList } from "@/constants/Navigation";
 
 const Header = () => {
   return (
-    <div className={` absolute top-0 z-50 w-full `}>
+    <div className={` absolute top-0 z-50 w-full ${roboto} `}>
       <div
-        className={`flex justify-between  items-end md:mx-32 mx-6  text-lg`}
+        className={`flex justify-between  items-center md:mx-32 mx-6  text-lg`}
       >
-        <div>
-          <Link href={"/"}>
-            <Image
-              src={logo}
-              height={80}
-              width={80}
-              alt="Logo"
-              className="hover:scale-95 duration-200"
-            />
-          </Link>
-        </div>
+        <Link href={"/"}>
+          <Image
+            src="https://ik.imagekit.io/princeSherwa/Personal/wanderer's%20wallet/journey%20journals?updatedAt=1717788318957"
+            height={100}
+            width={100}
+            alt="Logo"
+            className="hover:scale-95 duration-200 dark:invert"
+          />
+        </Link>
         <div className=" flex justify-center items-center gap-16 capitalize">
           {NavList.map((item, idx) => (
             <Link

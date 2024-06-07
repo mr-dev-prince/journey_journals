@@ -8,7 +8,7 @@ const HeroContent = () => {
       <div className="text-center grid place-items-center">
         <div className="grid gap-6">
           <TypewriterText />
-          <h2 className="text-4xl font-extralight ">
+          <h2 className="text-4xl font-light ">
             Every trip has a tale to tell.
           </h2>
         </div>
