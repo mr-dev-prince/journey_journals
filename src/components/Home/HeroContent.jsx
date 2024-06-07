@@ -1,14 +1,13 @@
 import { dmSerif } from "@/utils/font";
 import React from "react";
+import { TypewriterText } from "./TypeWriterText";
 
 const HeroContent = () => {
   return (
     <div className="absolute h-full w-full left-0 top-0 flex justify-center items-center ">
       <div className="text-center grid place-items-center">
         <div className="grid gap-6">
-          <h1 className={`${dmSerif} text-9xl tracking-wider`}>
-            Journey Journals.
-          </h1>
+          <TypewriterText />
           <h2 className="text-4xl font-extralight ">
             Every trip has a tale to tell.
           </h2>

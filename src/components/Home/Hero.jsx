@@ -7,7 +7,7 @@ import HeroContent from "./HeroContent";
 
 const Hero = () => {
   return (
-    <div className="min-h-screen w-full rounded-md dark:bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
+    <div className="min-h-screen w-full rounded-md dark:bg-[#121212] relative flex flex-col items-center justify-center antialiased">
       <Header />
       <HeroContent />
       <BackgroundBeams />
