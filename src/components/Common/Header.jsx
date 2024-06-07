@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className={` absolute top-0 z-50 w-full `}>
       <div
-        className={`flex justify-between  items-end md:mx-32 mx-6 ${roboto} text-lg`}
+        className={`flex justify-between  items-end md:mx-32 mx-6  text-lg`}
       >
         <div>
           <Link href={"/"}>
