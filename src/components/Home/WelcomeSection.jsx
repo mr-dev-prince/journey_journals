@@ -10,7 +10,7 @@ import React from "react";
 
 const WelcomeSection = () => {
   return (
-    <div className="md:mx-32 min-h-screen flex justify-center items-center">
+    <div className="md:px-32 min-h-screen flex justify-center items-center">
       <div className="flex justify-between items-center w-full h-full">
         <div className={`grid gap-12 w-[50%]`}>
           <div className="grid gap-5">
