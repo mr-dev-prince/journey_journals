@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import "./globals.css";
-import { Providers } from "./providers";
+import "../globals.css";
+import { Providers } from "../providers";
 import { FloatingNavBar } from "@/components/Common/FloatingHeader";
 import Footer from "@/components/Common/Footer";
 import Header from "@/components/Common/Header";

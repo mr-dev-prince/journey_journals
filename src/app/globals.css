@@ -111,9 +111,3 @@
   transform: translateX(24px);
 }
 
-/* shape */
-
-.shape1 {
-  border-radius: 52% 48% 39% 61% / 47% 49% 0% 53%;
-  background: #00000059;
-}
