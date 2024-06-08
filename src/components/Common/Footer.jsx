@@ -6,7 +6,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className={`${roboto} md:px-32 py-16`}>
-      <div className="w-full h-[2px] bg-gradient-to-r from-white dark:from-[#121212] via-blue-500 dark:to-[#121212] to-white mb-8 " />
+      <div className="w-full h-[2px] bg-gradient-to-r from-[#121212] via-blue-500  mb-8 " />
       <div className="flex justify-between items-center">
         <Link href={"/"}>
           <Image

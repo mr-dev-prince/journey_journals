@@ -12,8 +12,8 @@ export const NavList = [
     icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
-    href: "/destination",
-    title: "destination",
+    href: "/destinations",
+    title: "destinations",
     icon: <IconMapPin className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
