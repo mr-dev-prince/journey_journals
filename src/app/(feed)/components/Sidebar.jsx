@@ -6,22 +6,23 @@ import { roboto } from "@/utils/font";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import PostBtn from "./PostBtn";
 
 const Sidebar = () => {
   return (
-    <div className={`h-full w-fit ${roboto} `}>
+    <div className={`h-full w-fit ${roboto} w-[15rem]`}>
       <div className="fixed top-0 p-2 h-full ">
         <div className="flex flex-col h-full w-[15rem] justify-between">
           <div className="flex flex-col gap-12">
-              <Link href={"/"}>
-                <Image
-                  src="https://ik.imagekit.io/princeSherwa/Personal/wanderer's%20wallet/journey%20journals?updatedAt=1717788318957"
-                  height={80}
-                  width={80}
-                  alt="Logo"
-                  className="dark:invert"
-                />
-              </Link>
+            <Link href={"/"}>
+              <Image
+                src="https://ik.imagekit.io/princeSherwa/Personal/wanderer's%20wallet/journey%20journals?updatedAt=1717788318957"
+                height={80}
+                width={80}
+                alt="Logo"
+                className="dark:invert"
+              />
+            </Link>
             <div className="flex flex-col capitalize gap-5">
               {FeedNavList.map((item, idx) => (
                 <Link
@@ -35,11 +36,14 @@ const Sidebar = () => {
               ))}
             </div>
           </div>
-          <div className="ring-1 rounded-lg p-1">
-            <ProfileCard />
-            <div className="flex justify-start items-center gap-6 p-2 ">
-              <LogOutBtn />
-              <ToggleTheme />
+          <div className="flex flex-col gap-3">
+            <PostBtn title={"Share your journey"} className="p-2" />
+            <div className="ring-1 rounded-lg p-1">
+              <ProfileCard />
+              <div className="flex justify-start items-center gap-6 p-2 ">
+                <LogOutBtn />
+                <ToggleTheme />
+              </div>
             </div>
           </div>
         </div>
