@@ -28,7 +28,7 @@ const Footer = () => {
             <p className="absolute top-0 left-0">Journey</p>
             <p className="absolute top-6 left-5 ">Journals.</p>
           </div>
-          <p className="text-xs tracking-wider">&copy; all rights reserved</p>
+          <p className="text-xs tracking-wider capitalize">&copy; all rights reserved</p>
         </div>
       </div>
     </div>

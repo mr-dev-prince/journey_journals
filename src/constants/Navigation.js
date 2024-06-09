@@ -27,7 +27,7 @@ export const NavList = [
     icon: <IconBucket className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
-    href: "/visited",
+    href: "/vault",
     title: "Voyage Vault",
     icon: (
       <IconLivePhoto className="h-4 w-4 text-neutral-500 dark:text-white" />
@@ -49,13 +49,18 @@ export const FeedNavList = [
   {
     href: "/messages",
     title: "Messages",
-    icon: <IconMessage size={28} className=" text-neutral-500 dark:text-white" />,
+    icon: (
+      <IconMessage size={28} className=" text-neutral-500 dark:text-white" />
+    ),
   },
   {
     href: "/communities",
     title: "Communities",
     icon: (
-      <IconBuildingCommunity size={28} className=" text-neutral-500 dark:text-white" />
+      <IconBuildingCommunity
+        size={28}
+        className=" text-neutral-500 dark:text-white"
+      />
     ),
   },
   {
