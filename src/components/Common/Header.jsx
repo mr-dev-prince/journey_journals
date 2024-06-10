@@ -8,7 +8,7 @@ import { NavList } from "@/constants/Navigation";
 
 const Header = () => {
   return (
-    <div className={` absolute top-0 z-50 w-full ${roboto} `}>
+    <div className={` absolute top-0 z-50 w-full ${roboto} h-[6rem] `}>
       <div
         className={`flex justify-between  items-center md:mx-32 mx-6  text-lg`}
       >
