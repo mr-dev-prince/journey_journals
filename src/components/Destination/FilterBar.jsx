@@ -18,34 +18,28 @@ import { Button } from "@nextui-org/react";
 import RefreshBtn from "./RefreshBtn";
 import Image from "next/image";
 import Link from "next/link";
+import { ProfileCard } from "../ui/Profile";
 
 const FilterBar = () => {
   return (
-    <div className="w-[15rem] h-full fixed top-5 no-scroll-bar">
-      <Link href={"/"}>
-        <Image
-          src="https://ik.imagekit.io/princeSherwa/Personal/wanderer's%20wallet/journey%20journals?updatedAt=1717788318957"
-          height={80}
-          width={80}
-          alt="Logo"
-          className="dark:invert"
-        />
-      </Link>
-      <div className="w-full text-center">
-        <p className={`text-xl ${dmSerif} tracking-wide`}>
-          Filter your destinations
-        </p>
-      </div>
-      <div className="h-full p-3 flex flex-col gap-3 ">
-        {CategoryList.map((item, idx) => (
-          <DropDownComponent
-            key={idx}
-            title={item.title}
-            icon={item.icon}
-            category={item.category}
-          />
-        ))}
-        <RefreshBtn />
+    <div className="w-[15rem] h-[88vh] fixed top-[12vh]  overflow-auto scroll-smooth">
+      <div className="h-full w-full flex flex-col gap-4 pt-5">
+        <div className="w-full text-center">
+          <p className={`text-xl ${dmSerif} tracking-wide`}>
+            Filter your destinations
+          </p>
+        </div>
+        <div className="h-full px-3 flex flex-col gap-3">
+          {CategoryList.map((item, idx) => (
+            <DropDownComponent
+              key={idx}
+              title={item.title}
+              icon={item.icon}
+              category={item.category}
+            />
+          ))}
+          <RefreshBtn />
+        </div>
       </div>
     </div>
   );
@@ -75,5 +69,17 @@ export const CategoryList = [
   { title: "Budget", icon: <FaMoneyBill1Wave size={20} /> },
   { title: "Accessibility", icon: <IoAccessibilitySharp size={20} /> },
   { title: "Season", icon: <BsCloudSunFill size={20} /> },
-  { title: "Travel Style", icon: <FaUmbrellaBeach size={20} /> },
+  {
+    title: "Travel Style",
+    icon: <FaUmbrellaBeach size={20} />,
+    category: [
+      "Asia",
+      "Europe",
+      "Antarctica",
+      "South America",
+      "North America",
+      "Russia",
+      "Africa",
+    ],
+  },
 ];

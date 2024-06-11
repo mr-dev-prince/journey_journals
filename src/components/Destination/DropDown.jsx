@@ -23,17 +23,13 @@ export const DropDownComponent = ({ title, icon, category }) => {
     setOpen(!open);
   };
 
-
   return (
     <Dropdown>
       <DropdownTrigger>
         <Button variant="bordered" className="capitalize" onClick={handleClick}>
-          <div className="flex w-full justify-between items-center">
+          <div className="flex w-full justify-start gap-5 px-2 items-center">
             {icon}
-            <p className="capitalize text-base">{selectedKey}</p>
-            <div>
-              {open ? <FaCaretDown size={16} /> : <FaCaretRight size={16} />}
-            </div>
+            <p className="capitalize text-base tracking-wider">{selectedKey}</p>
           </div>
         </Button>
       </DropdownTrigger>

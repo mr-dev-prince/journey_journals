@@ -9,7 +9,7 @@ const FeaturedSection = () => {
         <div className="relative w-full  flex justify-center items-center">
           <div className="w-full absolute top-[52%] h-[2px] bg-gradient-to-r from-[#121212] via-blue-500 " />
           <p
-            className={`${dmSerif} text-5xl capitalize bg-white dark:bg-[#121212] z-10 px-3`}
+            className={`${dmSerif} text-5xl capitalize bg-white dark:bg-black z-10 px-3`}
           >
             featured posts
           </p>

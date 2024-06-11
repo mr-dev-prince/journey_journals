@@ -2,13 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { roboto } from "@/utils/font";
 import { ToggleTheme } from "../ui/toggleTheme";
 import { NavList } from "@/constants/Navigation";
+import { cn } from "@/utils/cn";
+import { roboto } from "@/utils/font";
 
-const Header = () => {
+const Header = ({ className }) => {
   return (
-    <div className={` absolute top-0 z-50 w-full ${roboto} h-[6rem] `}>
+    <div
+      className={cn(
+        ` absolute top-0 z-50 w-full ${roboto} h-[12vh]`,
+        className
+      )}
+    >
       <div
         className={`flex justify-between  items-center md:mx-32 mx-6  text-lg`}
       >
