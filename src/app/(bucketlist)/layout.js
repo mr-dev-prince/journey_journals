@@ -3,6 +3,7 @@ import { Providers } from "../providers";
 import "../globals.css";
 import { roboto } from "@/utils/font";
 import Header from "@/components/Common/Header";
+import { BackGroundAurora } from "@/components/bucketlist/BackGroundAurora";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,9 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <main
-            className={`h-screen w-full  flex gap-[17rem] select-none ${roboto}`}
-          >
-            <Header className={"fixed top-0 bg-white dark:bg-black"} />
+          <main className={`h-screen w-full select-none relative ${roboto}`}>
+            <BackGroundAurora />
+            <Header className={"fixed top-0 bg-transparent"} />
             {children}
           </main>
         </Providers>

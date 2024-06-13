@@ -22,7 +22,7 @@ export const NavList = [
     icon: <IconMapPin className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
-    href: "/bucketList",
+    href: "/bucketlist",
     title: "my bucketlist",
     icon: <IconBucket className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
