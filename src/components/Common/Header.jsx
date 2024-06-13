@@ -11,7 +11,7 @@ const Header = ({ className }) => {
   return (
     <div
       className={cn(
-        ` absolute top-0 z-50 w-full ${roboto} h-[12vh]`,
+        `z-50 w-full ${roboto} h-[12vh]`,
         className
       )}
     >

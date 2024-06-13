@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <Header className={`absolute top-0`} />
+          <Header />
           <FloatingNavBar />
           <main>{children}</main>
           <Footer />
