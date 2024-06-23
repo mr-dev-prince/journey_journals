@@ -4,6 +4,7 @@ import "../globals.css";
 import { roboto } from "@/utils/font";
 import Header from "@/components/Common/Header";
 import { BackGroundAurora } from "@/components/bucketlist/BackGroundAurora";
+import CustomModal from "@/components/bucketlist/CustomModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +14,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
           <main className={`h-screen w-full select-none relative ${roboto}`}>
+            <CustomModal />
             <BackGroundAurora />
             <Header className={"fixed top-0 bg-transparent"} />
             {children}

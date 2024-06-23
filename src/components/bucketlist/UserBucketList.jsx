@@ -1,9 +1,10 @@
 import { dmSerif } from "@/utils/font";
 import React from "react";
+import CustomModal from "./CustomModal";
 
 const UserBucketList = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-10">
       <div className="relative w-full  flex justify-center items-center">
         <div className="w-full absolute top-[52%] h-[2px] bg-gradient-to-r from-[#121212] via-blue-500 " />
         <p
@@ -11,6 +12,8 @@ const UserBucketList = () => {
         >
           Your Bucket List
         </p>
+      </div>
+      <div>
       </div>
     </div>
   );
